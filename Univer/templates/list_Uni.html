@@ -48,9 +48,13 @@
             <h6>{{task.descripcion}}</h6>
             <p>{{task.direccion}}</p>
             </div>
-            <form action="{% url 'delete_task' task.id %}" method="POST">
+            
+            <form action="{% url 'delete_task' task.id %}"  method="POST">
               {% csrf_token %}
               <button class="btn btn-danger">Eliminar</button>
+                         
+              {% csrf_token %}
+              <button class="btn btn-success">Editar</button>
             </form>
           </div>
           {% empty %}
