@@ -20,11 +20,7 @@
       <div class="row">
         <div class="col-md-4 offset-md-4">
           <h1>Tu Universidades</h1>
-          <form
-            action="{% url 'create_task' %}"
-            method="POST"
-            class="card card-body bg-secondary"
-          >
+          <form action="{% url 'editar_task' %}" method="POST" class="card card-body bg-secondary">
             {% csrf_token %}
 
             <input type="text" name="decano" placeholder="Nombra" />
@@ -45,20 +41,18 @@
           </form>
           {% for task in Univer %}
           <div class="list-group">
-            <div
-              class="card card-body bg-secondary text-light d-flex flex-row justify-content-between mb-2"
-            >
-              <h3 class="h6">{{task.decano}}</h3>
-              <h4>{{task.apellido}}</h4>
-              <h5>{{task.titulo}}</h5>
-              <h6>{{task.descripcion}}</h6>
-              <p>{{task.direccion}}</p>
+            <div class="card card-body bg-secondary text-light d-flex flex-row justify-content-between mb-2">
+            <h3 class="h6">{{task.decano}}</h3>
+            <h4>{{task.apellido}}</h4>
+            <h5>{{task.titulo}}</h5>
+            <h6>{{task.descripcion}}</h6>
+            <p>{{task.direccion}}</p>
             </div>
-
-            <form action="{% url 'delete_task' task.id %}" method="POST">
+            
+            <form action="{% url 'delete_task' task.id %}"  method="POST">
               {% csrf_token %}
-              <button class="btn btn-danger">Eliminar</button>
-
+              <button class="btn btn-danger">Eliminar</button>             
+            <form action="{% url 'editar_task' task.id %}" >             
               {% csrf_token %}
               <button class="btn btn-success">Editar</button>
             </form>
