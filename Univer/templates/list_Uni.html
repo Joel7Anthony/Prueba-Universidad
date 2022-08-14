@@ -31,11 +31,7 @@
 
             <input type="text" name="apellido" placeholder="apellido" />
 
-            <input
-              type="text"
-              name="titulo"
-              placeholder="nombre de la Universidad"
-            />
+            <input type="text" name="titulo" placeholder="nombre de la Universidad" />
 
             <input type="text" name="descripcion" placeholder="descripcion" />
 
@@ -58,7 +54,8 @@
             <form action="{% url 'delete_task' task.id %}" method="POST">
               {% csrf_token %}
               <button class="btn btn-danger">Eliminar</button>
-
+            </form>
+            <form>
               {% csrf_token %}
               <button class="btn btn-success">Editar</button>
             </form>
